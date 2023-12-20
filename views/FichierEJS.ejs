@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+    <body>
+        <div1>
+            <h1>Testez vous</h1>
+           
+            <% for(table_vocabulaire of Grille) { %>
+                
+                
+                
+            <p> Que veut dire ce mot? : <%= table_vocabulaire.mot  %></p>
+           
+            <form action="/check/<%= table_vocabulaire.idMots %>" method="POST">            
+                <label>Traduction</label>
+                <input name="check_traduction"  required/>       
+                <input type="submit" />
+              </form> 
+              <% } %>  
+        </div1>  
+        
+        
+        <div4><a href="/PageVocabulaire"> Rajouter un mot </a></div4>           
+    </body>
+</html>

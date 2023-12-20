@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+    <body>
+        
+        <div2>
+            <h2>Ajouter des mots</h2>
+            <form action="/add" method="POST">
+                <label>Mot</label>
+                <input name="new_mot" required/>             
+                <label>Traduction</label>
+                <input name="new_traduction"  required/>       
+                <input type="submit" />
+              </form>
+        </div2>
+
+        <div3>
+            <h3>Liste de vocabulaire</h3>
+            <ul>
+                <table style="width:100%" >
+                    <Tr>
+                        <th>Mot</th>
+                        <th>Traduction</th>
+                        <th></th>           
+                        <th>Action</th>
+                        
+                    </Tr>
+                    <% for(table_vocabulaire of Grille) { %>
+                    <% let result = (table_vocabulaire.reussi/table_vocabulaire.total)*100  %>       
+                    <li>
+                        <table style="width:100%;">
+                            <tr>
+                                <td><%= table_vocabulaire.mot %> </td>
+                                <td><%= table_vocabulaire.traduction %></td>
+                                <td><p><%- result %>% de réussite </p></td>
+                                <td><a href="/delete/<%= table_vocabulaire.idMots %>">Delete</a></td>
+                            </tr>
+                        </table>                         
+                    </li> 
+                    <% } %>
+                </table>
+            </ul>
+        </div3>      
+        <div4><a href="/"> Retourner au test </a></div4>               
+    </body>
+</html>
